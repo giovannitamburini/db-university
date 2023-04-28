@@ -4,9 +4,19 @@ SELECT `date_of_birth`
 FROM `students`
 WHERE YEAR(`date_of_birth`) = 1990;
 
+correzione
+SELECT *
+FROM `students`
+WHERE YEAR(`date_of_birth`) = 1990;
+
 2)
 
 SELECT `cfu`
+FROM `courses`
+WHERE `cfu` > 10;
+
+correzione
+SELECT *
 FROM `courses`
 WHERE `cfu` > 10;
 
@@ -15,6 +25,11 @@ WHERE `cfu` > 10;
 SELECT *
 FROM `students`
 WHERE DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(),`date_of_birth`)), '%Y') > 30;
+
+correzione
+SELECT *
+FROM `students`
+WHERE DATE_SUB(CURDATE(), INTERVAL 30 YEAR) > `date_of_birth`;
 
 4)
 
@@ -38,7 +53,7 @@ WHERE `level` = "magistrale";
 
 7)
 
-SELECT COUNT(`id`)
+SELECT COUNT(`id`) as `numeri_di_dipartimenti`
 FROM `departments`;
 
 8)

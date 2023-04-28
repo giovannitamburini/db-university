@@ -1,0 +1,38 @@
+1)
+
+SELECT `students`.`name`, `students`.`surname`,`students`.`fiscal_code`, `degrees`.`name` AS `nome_corso`, `degrees`.`level`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`id` = 53;
+
+2)
+
+SELECT `degrees`.`name`, `degrees`.`level`, `departments`.`name`
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `degrees`.`department_id` = 7
+AND `degrees`.`level` = 'magistrale';
+
+3)
+
+- opzione 1
+
+SELECT `courses`.name AS `nome_corso`, `courses`.`year`,`courses`.`cfu`
+FROM `courses`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+WHERE `course_teacher`.`teacher_id` = 44;
+
+
+- opzione 2
+
+SELECT `courses`.name AS `nome_corso`, `courses`.`year`,`courses`.`cfu`, `teachers`.`name`,`teachers`.`surname`
+FROM `courses`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+WHERE `teachers`.`name` = 'Fulvio'
+AND `teachers`.`surname` = 'Amato';
