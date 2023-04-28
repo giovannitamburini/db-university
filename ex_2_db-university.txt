@@ -36,3 +36,15 @@ INNER JOIN `teachers`
 ON `course_teacher`.`teacher_id` = `teachers`.`id`
 WHERE `teachers`.`name` = 'Fulvio'
 AND `teachers`.`surname` = 'Amato';
+
+4)
+
+SELECT `students`.`name`, `students`.`surname`,
+`degrees`.`name` AS `course`, `degrees`.`level`, `degrees`.`address`,
+`departments`.`name` AS `department`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`surname`, `students`.`name`;
