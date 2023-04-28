@@ -47,4 +47,18 @@ INNER JOIN `degrees`
 ON `students`.`degree_id` = `degrees`.`id`
 INNER JOIN `departments`
 ON `degrees`.`department_id` = `departments`.`id`
-ORDER BY `students`.`surname`, `students`.`name`;
+ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
+
+5)
+
+SELECT `degrees`.`name` AS `nome_corso_laurea` , `degrees`.`level`,
+`courses`.`name` AS `nome_corso`, `courses`.`year`,
+`teachers`.`name` AS `teachers_name`, `teachers`.`surname` AS `teachers_surname`
+FROM `degrees`
+INNER JOIN `courses`
+ON `degrees`.`id` = `courses`.`degree_id`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+ORDER BY `nome_corso_laurea` ASC, `year` ASC, `nome_corso` ASC;
