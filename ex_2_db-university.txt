@@ -85,9 +85,9 @@ SELECT COUNT(`exam_student`.`student_id`) AS `n_attempts`,
 FROM `students`
 LEFT JOIN `exam_student`
 ON `students`.`id` = `exam_student`.`student_id`
-LEFT JOIN `exams`
+INNER JOIN `exams`
 ON `exam_student`.`exam_id` = `exams`.`id`
-LEFT JOIN `courses`
+INNER JOIN `courses`
 ON `exams`.`course_id` = `courses`.`id`
 GROUP BY `students`.`id`, `courses`.`id`
 ORDER BY `students`.`surname`, `students`.`name`, `courses`.`id`;
